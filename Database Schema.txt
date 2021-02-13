@@ -32,9 +32,9 @@ to_date date
 
 Titles
 -
-emp_no int pk fk -< Employees.emp_no
-title varchar pk
-from_date date pk
+emp_no int fk -< Employees.emp_no
+title varchar 
+from_date date
 to_date date
 
 Dept_Emp
