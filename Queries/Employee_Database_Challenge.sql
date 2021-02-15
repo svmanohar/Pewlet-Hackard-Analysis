@@ -56,3 +56,10 @@ FULL OUTER JOIN titles as t
 WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
     AND (de.to_date = '9999-01-01')
 ORDER BY e.emp_no ASC, de.to_date DESC;
+
+SELECT SUM(s.salary), lrt.title
+FROM latest_retirement_titles as lrt
+FULL OUTER JOIN salary as s
+    ON (lrt.emp_no = s.emp_no)
+GROUP BY lrt.title
+ORDER BY SUM(s.salary) DESC;

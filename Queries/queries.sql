@@ -103,3 +103,21 @@ INNER JOIN dept_emp AS de
 ON (ce.emp_no = de.emp_no)
 INNER JOIN departments AS d
 ON (de.dept_no = d.dept_no);
+
+------------
+
+-- Use of DISTINCT and DISTINCT ON
+-- SELECT (Distinct) documentation: https://www.postgresql.org/docs/9.5/sql-select.html#SQL-DISTINCT
+-- Syntax:
+	-- Should always repeat the item; DISTINCT ON (item) item, <next item>, <next item>
+SELECT DISTINCT ON (location) location, time, report
+    FROM weather_reports
+	-- If we don't use ORDER BY, DISTINCT ON may not select the appropriate row
+	-- Typically is best prctice to combine DISTINCT ON with ORDER BY
+	-- Follow same syntax as the SELECT query
+    ORDER BY location, time DESC;
+
+------------
+
+-- Aggregate functions
+-- https://www.youtube.com/watch?v=nNrgRVIzeHg
